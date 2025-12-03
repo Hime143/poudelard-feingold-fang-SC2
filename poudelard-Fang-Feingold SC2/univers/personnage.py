@@ -8,4 +8,12 @@ def initialiser_personnage(nom, prenom, attributs):
         "Attributs": attributs
     }
 
-
+def afficher_personnage(joueur):
+    print("Nom :", joueur["Nom"])
+    print("Prenom :", joueur["Prenom"])
+    print("Argent :", joueur["Argent"])
+    print("Inventaire :", ", ".join(joueur["Inventaire"]))
+    print("Sortilèges :", ", ".join(joueur["Sortilèges"]))
+    print("Attributs :")
+    for cle in joueur["Attributs"]:
+        print("-", cle, ":", joueur["Attributs"][cle])
