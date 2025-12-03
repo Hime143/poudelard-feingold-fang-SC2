@@ -1,5 +1,4 @@
 import json
-
 def demander_texte(message):
     txt = input(message)
     while txt.strip() == "":

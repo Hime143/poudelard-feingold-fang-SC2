@@ -1,3 +1,6 @@
+from ..utils.input_utils import demander_choix
+
+
 maisons = {
     "Gryffondor": 0,
     "Serpentard": 0,
@@ -22,8 +25,37 @@ def  afficher_maison_gagnante(maisons):
 
 def repartition_maison(joueur, questions):
     repartition = {
-        "Gryffondor": 0,
-        "Serpentard": 0,
-        "Poufsouffle": 0,
-        "Serdaigle": 0
+        "Gryffondor": joueur["Attributs"]["courage"] * 2,
+        "Serpentard": joueur["Attributs"]["ambition"] * 2,
+        "Poufsouffle": joueur["Attributs"]["loyauté"] * 2,
+        "Serdaigle": joueur["Attributs"]["intelligence"] * 2
     }
+
+    for question in questions:
+        print(question.key)
+        for i in range(len(question.value)):
+            print(i+1,".",question.value[i])
+        choix = demander_choix("ton choix :", question.value)
+        if choix == 1:
+            repartition["Gryffondor"] += 3
+        elif choix == 2:
+            repartition["Serpentard"] += 3
+        elif choix == 3:
+            repartition["Poufsouffle"] += 3
+        elif choix == 4:
+            repartition["Serdaigle"] += 3
+
+    maxi = 0
+    for nom in repartition:
+        if repartition[nom] > maxi:
+            maxi = repartition[nom]
+    print("Résumé des scores : ")
+    print("Gryffondor :",repartition["Gryffondor"],"points")
+    print("Serpentard :", repartition["Serpentard"], "points")
+    print("Poufsouffle :", repartition["Poufsouffle"], "points")
+    print("Serdaigle :", repartition["Serdaigle"], "points")
+    for equipe,score in repartition.items():
+        if score == maxi:
+            return equipe
+
+
