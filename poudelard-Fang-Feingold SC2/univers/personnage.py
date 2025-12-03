@@ -9,6 +9,7 @@ def initialiser_personnage(nom, prenom, attributs):
     }
 
 def afficher_personnage(joueur):
+    print("Profil du personnage:")
     print("Nom :", joueur["Nom"])
     print("Prenom :", joueur["Prenom"])
     print("Argent :", joueur["Argent"])
