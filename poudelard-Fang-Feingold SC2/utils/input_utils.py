@@ -2,8 +2,7 @@ def demander_texte(message):
     txt = input(message)
     while txt.strip() == "":
         txt = input(message)
-    else:
-        return txt
+    return txt
 
 def demander_nombre(message, min_val=None, max_val=None):
     while True:
