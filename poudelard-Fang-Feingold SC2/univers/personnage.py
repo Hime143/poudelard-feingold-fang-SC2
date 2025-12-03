@@ -21,3 +21,12 @@ def afficher_personnage(joueur):
 
 def modifier_argent(joueur, montant):
     joueur["Argent"] += montant
+
+def ajouter_objet(joueur, cle, objet):
+    joueur[cle].append(objet)
+
+def actualiser_points_maisons(maisons, nom_maison, points):
+    if nom_maison in maisons:
+        maisons[nom_maison] += points
+    else:
+        print("Maison introuvable.")
