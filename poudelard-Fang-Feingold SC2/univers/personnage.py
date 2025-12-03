@@ -25,3 +25,5 @@ def modifier_argent(joueur, montant):
 def ajouter_objet(joueur, cle, objet):
     joueur[cle].append(objet)
 
+def actualiser_points_maisons(maisons, nom_maison, points):
+    maisons[nom_maison] += points
