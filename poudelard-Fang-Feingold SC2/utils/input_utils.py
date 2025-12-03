@@ -1,3 +1,5 @@
+import json
+
 def demander_texte(message):
     txt = input(message)
     while txt.strip() == "":
@@ -59,3 +61,8 @@ def demander_choix(message, options):
         print("{}. {}".format(i+1, options[i]))
     choix = demander_nombre("votre choix : ", 1, len(options))
     return choix
+
+def load_fichier(chemin):
+    with open(chemin, "r", encoding="utf-8") as f:
+        donnees = json.load(f)
+    return donnees
