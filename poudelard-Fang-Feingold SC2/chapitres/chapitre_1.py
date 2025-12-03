@@ -6,4 +6,3 @@ def introduction():
     print("Tu attends ta lettre d'acceptation pour t'aventurer sur le Chemin de Traverse...")
     input()
 
-print(introduction())
