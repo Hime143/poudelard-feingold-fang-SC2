@@ -26,4 +26,7 @@ def ajouter_objet(joueur, cle, objet):
     joueur[cle].append(objet)
 
 def actualiser_points_maisons(maisons, nom_maison, points):
-    maisons[nom_maison] += points
+    if nom_maison in maisons:
+        maisons[nom_maison] += points
+    else:
+        print("Maison introuvable.")
