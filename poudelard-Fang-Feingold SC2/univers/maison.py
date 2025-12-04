@@ -1,4 +1,4 @@
-from ..utils.input_utils import demander_choix
+from utils.input_utils import demander_choix
 
 
 maisons = {
@@ -25,25 +25,22 @@ def  afficher_maison_gagnante(maisons):
 
 def repartition_maison(joueur, questions):
     repartition = {
-        "Gryffondor": joueur["Attributs"]["courage"] * 2,
-        "Serpentard": joueur["Attributs"]["ambition"] * 2,
-        "Poufsouffle": joueur["Attributs"]["loyauté"] * 2,
-        "Serdaigle": joueur["Attributs"]["intelligence"] * 2
+        "Gryffondor": int(joueur["Attributs"]["courage"]) * 2,
+        "Serpentard": int(joueur["Attributs"]["ambition"]) * 2,
+        "Poufsouffle": int(joueur["Attributs"]["loyauté"]) * 2,
+        "Serdaigle": int(joueur["Attributs"]["intelligence"]) * 2
     }
 
     for question in questions:
-        print(question.key)
-        for i in range(len(question.value)):
-            print(i+1,".",question.value[i])
-        choix = demander_choix("ton choix :", question.value)
+        choix = demander_choix(question[0], question[1])
         if choix == 1:
-            repartition["Gryffondor"] += 3
+            repartition["Gryffondor"] = 3
         elif choix == 2:
-            repartition["Serpentard"] += 3
+            repartition["Serpentard"] = 3
         elif choix == 3:
-            repartition["Poufsouffle"] += 3
+            repartition["Poufsouffle"] = 3
         elif choix == 4:
-            repartition["Serdaigle"] += 3
+            repartition["Serdaigle"] = 3
 
     maxi = 0
     for nom in repartition:
