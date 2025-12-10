@@ -1,5 +1,13 @@
-from main import joueur
-from utils.input_utils import demander_choix
+from univers.maison import *
+from univers.personnage import *
+from utils.input_utils import *
+
+
+def initialiser():
+    global joueur
+    prenom = demander_texte("comment vous appelez vous?: \n")
+    nom = demander_texte("et votre nom de famille: \n")
+    joueur = initialiser_personnage(prenom,nom,{"Gryffondor" : 0, "Serpentard" : 0, "Poufsouffle": 0, "Serdaigle" : 0})
 
 
 def introduction():
@@ -7,7 +15,7 @@ def introduction():
     input()
     print("Issu d'une famille puissante de sorciers, tu atteins l'âge de tes 11 ans et tu t'apprêtes à faire ta rentrée à Poudlard.",end="")
     input()
-    print("Tu attends ta lettre d'acceptation pour t'aventurer sur le Chemin de Traverse...")
+    print("Tu attends ta lettre d'acceptation pour t'aventurer sur le Chemin de Traverse...",end="")
     input()
 
 def recevoir_lettre():
@@ -25,24 +33,105 @@ def recevoir_lettre():
 
 porte_casse = False
 def coucouHagrid():
+    global porte_casse
+    global joueur
     print("Toc,toc...Tu te lèves pour aller ouvrir, tu tombes nez à nez avec un géant de plus de 2m et demi.",end="")
     input()
     choix = demander_choix("Surpris tu:",["*Tu recules de 5m*","demandes: -Bonjour, puis-je vous aider Monsieur..?","*claques la porte au nez*","dit: c'est vous le livreur de pizza? Vous êtes très en retard..."])
     if choix == 1 or choix == 2:
-        print("Bonjour! Je suis Rubeus Hagrid, gardien des clés et des lieux à Poudlard",end="")
+        print("Hagrid : Bonjour! Je suis Rubeus Hagrid, gardien des clés et des lieux à Poudlard",end="")
         input()
     elif choix == 3:
         print("*Tu vois ta porte se détacher de son cadre avec un bruit assourdissant…*",end="")
         input()
-        print("Bonjour! Je suis Rubeus Hagrid, gardien des clés et des lieux à Poudlard", end="")
+        print("Hagrid : Bonjour! Je suis Rubeus Hagrid, gardien des clés et des lieux à Poudlard", end="")
         input()
         porte_casse = True
     else:
-        print("C'est quoi de la pizza? C'est bon? Peu importe, passons aux choses sérieuses",end="")
+        print("?? : C'est quoi de la pizza? C'est bon? Peu importe, passons aux choses sérieuses",end="")
         input()
-        print("Bonjour! Je suis Rubeus Hagrid, gardien des clés et des lieux à Poudlard", end="")
+        print("Hagrid : Bonjour! Je suis Rubeus Hagrid, gardien des clés et des lieux à Poudlard", end="")
         input()
-    print("Tu es un sorcier, {} {}, il est temps que tu ailles acheter tes fournitures scolaires pour la rentrée scolaire!".format(joueur["nom"],joueur["prenom"]))
+    choix = demander_choix("Tu es un sorcier, {} {}, il est temps que tu ailles acheter tes fournitures scolaires pour la rentrée scolaire!".format(joueur["Nom"],joueur["Prenom"]),["Je sais que je suis un sorcier je suis issu des nom , oseriez vous me confondre avec un moldu?","D'accord...mais je ne vais pas aller acheter mes fournitures scolaires avec un inconnu?","J'ai pas trop le temps, je dois aller arroser mes plantes, aller boire le thé et sortir avec mes chers parents","Oh, trop fun et où est-ce qu'on peut aller en trouver?"])
+    if choix == 1:
+        print("Hagrid : Haha bien sûr que tu n'es pas un moldu",end="")
+        input()
+        print("Hagrid : Allons sur le Chemin de Traverse!")
+        input()
+    elif choix == 2:
+        print("Hagrid : Je suis le garde de chasse de Poudlard tu n'as rien à craindre", end="")
+        input()
+        print("Hagrid : Allons sur le Chemin de Traverse!")
+        input()
+    elif choix == 3:
+        print("Hagrid : Ne t’inquiète pas tu auras tout le temps, les fournitures sont importantes pour ton éducation", end="")
+        input()
+        print("Hagrid : Allons sur le Chemin de Traverse!")
+        input()
+    else:
+        print("Hagrid : Allons sur le Chemin de Traverse!")
+        input()
+
+def fourniture():
+    global animal
+    print("Tu te retrouves ainsi dans un bar appelé le Chaudron Baveur, Hagrid t'emmène à l’arrière du bar et soudain… \nil sort un parapluie rose de son manteau et commence à tapoter 3 fois une brique… ",end="")
+    input()
+    print("Tu te retrouves dès lors face à une magnifique allée regorgeant de boutiques et de sorciers faisant leurs achats.",end="")
+    input()
+    print("Hagrid : Bienvenue sur le Chemin de Traverse! Nous irons faire un tour à Gringotts la banque des sorciers,\npour retirer ton argent et faire tes achats indispensable",end="")
+    input()
+    print("Tu te retrouves alors face à un grand bâtiment blanc, à l’intérieur des goblins y travaillent.\nEn sortant du bâtiment du te retrouves avec 100 galions dans les poches",end="")
+    input()
+    print("Tu fais la visite de plusieurs boutiques et en regardant ta liste de fournitures scolaires tu remarques qu’il te faut obligatoirement:\nune baguette magique, une robe de sorcier et un manuel de potions",end="")
+    input()
+    while "baguette magique" not in joueur["Inventaire"] or "robe de sorcier" not in joueur["Inventaire"] or "manuel de potions" not in joueur["Inventaire"]:
+        print()
+        choix = demander_choix("Voici le catalogue des objets disponibles :",["Baguette magique - 35 galions","Robe de sorcier - 20 galions","Chaudron en étain - 15 galions","Manuel de potions - 25 galions","Plume magique - 5 galions","Livre enchanté - 30 galions","Balance de cuivre - 10 galions","Cape d'invisibilité - 100 galions"])
+        if choix == 3 or choix == 5 or choix == 6 or choix == 7 or choix == 8:
+            print("tu n'a pas besoin de ça",end="")
+        elif choix == 1:
+            if "baguette magique" in joueur["Inventaire"]:
+                print("tu as déja acheté ça",end="")
+            else:
+                ajouter_objet(joueur,"Inventaire","baguette magique")
+                modifier_argent(joueur,-35)
+                print("Bravo tu viens d’acquérir une baguette magique",end="")
+        elif choix == 2:
+            if "robe de sorcier" in joueur["Inventaire"]:
+                print("tu as déja acheté ça",end="")
+            else:
+                ajouter_objet(joueur,"Inventaire","robe de sorcier")
+                modifier_argent(joueur,-20)
+                print("Bravo tu viens d’acquérir une robe de sorcier", end="")
+        elif choix == 4:
+            if "manuel de potions" in joueur["Inventaire"]:
+                print("tu as déja acheté ça",end="")
+            else:
+                ajouter_objet(joueur,"Inventaire","manuel de potions")
+                modifier_argent(joueur,-25)
+                print("Bravo tu viens d’acquérir un manuel de potions", end="")
+    print()
+    print("Tu peux dès à présent choisir ton animal de compagnie pour Poudlard",end="")
+
+    choix = demander_choix("Tu remarques plusieurs animaux avec leur prix.",["une chouette - 20 galions","un chat - 15 galions","un rat - 10 galions ","un crapaud - 5 galions"])
+    if choix == 1:
+        print("Félicitations tu viens d’obtenir une chouette",end="")
+        animal = "chouette"
+        modifier_argent(joueur,-20)
+    elif choix == 2:
+        print("Félicitations tu viens d’obtenir un chat",end="")
+        animal = "chat"
+        modifier_argent(joueur,-15)
+    elif choix == 3:
+        print("Félicitations tu viens d’obtenir un rat",end="")
+        animal = "rat"
+        modifier_argent(joueur,-10)
+    else:
+        print("Félicitations tu viens d’obtenir un crapaud",end="")
+        animal = "crapaud"
+        modifier_argent(joueur,-5)
+    print()
+    print("La fin des vacances d’été approchent et tu fais tes valises pour aller à la gare King’s Cross.")
 
 
 
