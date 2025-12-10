@@ -3,6 +3,7 @@ from univers.personnage import *
 from utils.input_utils import *
 
 
+
 def initialiser():
     global joueur
     prenom = demander_texte("comment vous appelez vous?: \n")
@@ -135,3 +136,34 @@ def fourniture():
 
 
 
+print("Tu arrives à 10h40 à la gare de King's Cross")
+input()
+print("Sur ton billet de train, tu vois voie 9 ¾, tu te figes, tu regardes encore une fois ton billet et c’est toujours marqué voie 9 ¾.")
+input()
+print("Tu regardes tes parents et leur tendent ton billet, ils sourient et te montre un mur du quai et te disent : ")
+input()
+print("Regarde là-bas mon enfant, il faut foncer droit sur le mur et tu arriveras sur le quai 9 ¾.")
+input()
+print("Il t’embrasse fort en souriant et te regarde faire:")
+input()
+print("Que fais-tu?")
+
+choix_1 = "1. Tu attrapes ton chariot avec ta valise et tu te met à courir à toute vitesse droit sur le mur"
+choix_2 = "2. Tu serres ton chariot entre tes mains, et fonce un peu hésitant"
+print(choix_1)
+print(choix_2)
+choix = int(input())
+while choix == 2:
+    print("Tu te heurtes au mur incrédule et regarde tes parents qui rigolent et qui te disent de réessayer avec confiance.")
+    input()
+    print("Tu dois réessayer!")
+    input()
+    print(choix_1)
+    print(choix_2)
+    choix = int(input())
+else:
+    print("Tu te retrouves alors sur le quai 9 ¾, avec une belle locomotive rouge à vapeur. \n"
+          "Tu montes à bord du Poudlard Express, tu trouves un compartiment vide pour t’y installer et y déposer tes valises dans le porte-bagages.\n"
+          "Le train démarre lentement vers le Nord…")
+input()
+print("Tu entends des coups à la porte, en ouvrant tu te retrouves nez à nez avec un garçon roux.")
