@@ -2,13 +2,10 @@ from univers.maison import *
 from univers.personnage import *
 from utils.input_utils import *
 
-
-
 def initialiser():
-    global joueur
     prenom = demander_texte("comment vous appelez vous?: \n")
     nom = demander_texte("et votre nom de famille: \n")
-    joueur = initialiser_personnage(prenom,nom,{"Gryffondor" : 0, "Serpentard" : 0, "Poufsouffle": 0, "Serdaigle" : 0})
+    return initialiser_personnage(prenom,nom,{"courage" : 0, "ambition" : 0, "loyauté": 0, "intelligence" : 0})
 
 
 def introduction():
@@ -33,9 +30,8 @@ def recevoir_lettre():
         input()
 
 porte_casse = False
-def coucouHagrid():
+def coucouHagrid(joueur):
     global porte_casse
-    global joueur
     print("Toc,toc...Tu te lèves pour aller ouvrir, tu tombes nez à nez avec un géant de plus de 2m et demi.",end="")
     input()
     choix = demander_choix("Surpris tu:",["*Tu recules de 5m*","demandes: -Bonjour, puis-je vous aider Monsieur..?","*claques la porte au nez*","dit: c'est vous le livreur de pizza? Vous êtes très en retard..."])
@@ -53,7 +49,7 @@ def coucouHagrid():
         input()
         print("Hagrid : Bonjour! Je suis Rubeus Hagrid, gardien des clés et des lieux à Poudlard", end="")
         input()
-    choix = demander_choix("Tu es un sorcier, {} {}, il est temps que tu ailles acheter tes fournitures scolaires pour la rentrée scolaire!".format(joueur["Nom"],joueur["Prenom"]),["Je sais que je suis un sorcier je suis issu des nom , oseriez vous me confondre avec un moldu?","D'accord...mais je ne vais pas aller acheter mes fournitures scolaires avec un inconnu?","J'ai pas trop le temps, je dois aller arroser mes plantes, aller boire le thé et sortir avec mes chers parents","Oh, trop fun et où est-ce qu'on peut aller en trouver?"])
+    choix = demander_choix("Tu es un sorcier, {} {}, il est temps que tu ailles acheter tes fournitures scolaires pour la rentrée scolaire!".format(joueur["Nom"],joueur["Prenom"]),["Je sais que je suis un sorcier je suis issu des {} , oseriez vous me confondre avec un moldu?".format(joueur["Nom"]),"D'accord...mais je ne vais pas aller acheter mes fournitures scolaires avec un inconnu?","J'ai pas trop le temps, je dois aller arroser mes plantes, aller boire le thé et sortir avec mes chers parents","Oh, trop fun et où est-ce qu'on peut aller en trouver?"])
     if choix == 1:
         print("Hagrid : Haha bien sûr que tu n'es pas un moldu",end="")
         input()
@@ -73,7 +69,7 @@ def coucouHagrid():
         print("Hagrid : Allons sur le Chemin de Traverse!")
         input()
 
-def fourniture():
+def fourniture(joueur):
     global animal
     print("Tu te retrouves ainsi dans un bar appelé le Chaudron Baveur, Hagrid t'emmène à l’arrière du bar et soudain… \nil sort un parapluie rose de son manteau et commence à tapoter 3 fois une brique… ",end="")
     input()
