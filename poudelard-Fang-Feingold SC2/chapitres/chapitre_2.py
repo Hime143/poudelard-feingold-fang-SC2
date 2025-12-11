@@ -26,9 +26,9 @@ def rencontrer_amis(joueur):
     elif choix == 3:
         print("Ne t’inquiète pas un Weasley ça mord pas” et il s’installe et dit")
         joueur["Attributs"]["ambition"] += 1
-    else:
-        print("Tu verras Poudlard est la meilleure école de sorcellerie")
 
+    print("Tu verras Poudlard est la meilleure école de sorcellerie")
+    input()
     print("Tu vois une fille qui entre avec quelques bouquins et qui se présente.\n Hermione : Bonjour, je m’appelle Hermione Granger. Vous avez déjà lu ‘Histoire de la Magie’ ?")
     choix = demander_choix(
         "Que réponds-tu?:",
@@ -129,7 +129,7 @@ def ceremonie_repartition(joueur):
 
 
 def installation_salle_commune(joueur):
-    maisons = load_fichier("./data/maisons.json")
+    maisons = load_fichier("../data/maisons.json")
 
     maison = joueur["Maison"]
     info = maisons[maison]
