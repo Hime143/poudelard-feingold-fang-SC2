@@ -129,7 +129,7 @@ def ceremonie_repartition(joueur):
 
 
 def installation_salle_commune(joueur):
-    maisons = load_fichier("../data/maisons.json")
+    maisons = load_fichier("./data/maisons.json")
 
     maison = joueur["Maison"]
     info = maisons[maison]
@@ -154,5 +154,3 @@ def lancer_chapitre_2(joueur):
     afficher_personnage(joueur)
     input()
     print("Fin du Chapitre 2 — Les cours vont bientôt commencer à Poudlard !")
-
-lancer_chapitre_2(joueur)

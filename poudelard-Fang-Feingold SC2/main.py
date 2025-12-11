@@ -8,5 +8,5 @@ recevoir_lettre()
 coucouHagrid(joueur)
 fourniture(joueur)
 arriver_gare()
-#mettre ici les fonctions chapitre 2
+lancer_chapitre_2(joueur)
 apprendre_sort(joueur)

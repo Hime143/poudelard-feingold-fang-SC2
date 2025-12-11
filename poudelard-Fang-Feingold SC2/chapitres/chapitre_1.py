@@ -5,7 +5,7 @@ from utils.input_utils import *
 def initialiser():
     prenom = demander_texte("comment vous appelez vous?: \n")
     nom = demander_texte("et votre nom de famille: \n")
-    return initialiser_personnage(prenom,nom,{"courage" : 0, "ambition" : 0, "loyauté": 0, "intelligence" : 0})
+    return initialiser_personnage(nom,prenom,{"courage" : 0, "ambition" : 0, "loyauté": 0, "intelligence" : 0})
 
 
 def introduction():
