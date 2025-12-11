@@ -34,13 +34,13 @@ def repartition_maison(joueur, questions):
     for question in questions:
         choix = demander_choix(question[0], question[1])
         if choix == 1:
-            repartition["Gryffondor"] = 3
+            repartition["Gryffondor"] += 3
         elif choix == 2:
-            repartition["Serpentard"] = 3
+            repartition["Serpentard"] += 3
         elif choix == 3:
-            repartition["Poufsouffle"] = 3
+            repartition["Poufsouffle"] += 3
         elif choix == 4:
-            repartition["Serdaigle"] = 3
+            repartition["Serdaigle"] += 3
 
     maxi = 0
     for nom in repartition:
