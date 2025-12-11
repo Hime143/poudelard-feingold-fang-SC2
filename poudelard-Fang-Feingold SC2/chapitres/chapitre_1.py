@@ -147,10 +147,9 @@ def arriver_gare():
         choix = demander_choix("Tu te heurtes au mur incrédule et regarde tes parents qui rigolent et qui te disent de réessayer avec confiance.",["Tu attrapes ton chariot avec ta valise et tu te met à courir à toute vitesse droit sur le mur","Tu serres ton chariot entre tes mains, et fonce un peu hésitant"])
     print("Tu te retrouves alors sur le quai 9 ¾, avec une belle locomotive rouge à vapeur. \nTu montes à bord du Poudlard Express, tu trouves un compartiment vide pour t’y installer et y déposer tes valises dans le porte-bagages.\nLe train démarre lentement vers le Nord…")
 
-def lancer_chapitre_1():
+def lancer_chapitre_1(joueur):
     introduction()
     input()
-    joueur = initialiser()
     recevoir_lettre()
     coucouHagrid(joueur)
     fourniture(joueur)
