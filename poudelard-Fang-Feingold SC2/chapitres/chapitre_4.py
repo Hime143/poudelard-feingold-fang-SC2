@@ -76,9 +76,7 @@ def afficher_equipe(maison, equipe):
 
 # Déroulement complet du match
 def match_quidditch(joueur, maisons):
-    with open("equipes_quidditch.json", "r", encoding="utf-8") as fichier:
-        data_maison = json.load(fichier)
-
+    fichier = load_fichier("./data/equipes_quidditch.json")
     maison_joueur = joueur['maison']
     maisons_adverses = list(data_maison.keys())
     maisons_adverses.remove(maison_joueur)
