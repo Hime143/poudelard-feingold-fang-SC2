@@ -3,6 +3,7 @@ from univers.personnage import *
 from utils.input_utils import *
 from random import choice
 
+#fonction pour apprendre 5 sort 1 offensif, 1 defensif et 3 utilitaires, description des 5 osrts
 def apprendre_sort(joueur):
     print("Tu te réveilles de bon matin, c’est ta première journée de cours. Tu regardes alors ton emploi du temps et tu vois que tu as cours de Sortilèges aujourd’hui.\nTu te prépares avant de prendre ton sac et de te diriger vers la salle du cours de Sortilèges. Tu t’installes et ouvre ton livre de sortilèges.",end="")
     input()
@@ -37,6 +38,7 @@ def apprendre_sort(joueur):
             if j["nom"] == joueur["Sortilèges"][i]:
                 print("-{} ({}) : {}".format(j["nom"],j["type"],j["description"]))
 
+#quizz sur 4 sorts au hasard, le joueur doit donner leur nom à partir d'une description
 def quiz_magie(joueur):
     print("Bienvenue au quiz de magie de Poudlard !\nRéponds correctement aux 4 questions pour faire gagner des points à ta maison.")
     questions = []
@@ -57,8 +59,7 @@ def quiz_magie(joueur):
     print("score obtenue : {} points".format(score))
     joueur["score"] = score
 
-
-
+#fonction du chapitre 3 ensemble, ajout des points dans la maison du joueur et transition entre chapitre 3 et 4
 def lancer_chapitre_3(joueur,maisons):
     apprendre_sort(joueur)
     input()

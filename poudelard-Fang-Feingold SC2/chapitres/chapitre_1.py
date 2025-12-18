@@ -2,12 +2,13 @@ from univers.maison import *
 from univers.personnage import *
 from utils.input_utils import *
 
+# Création des attributs du joueur
 def initialiser():
     prenom = demander_texte("comment vous appelez vous?: \n")
     nom = demander_texte("et votre nom de famille: \n")
     return initialiser_personnage(nom,prenom,{"courage" : 0, "ambition" : 0, "loyauté": 0, "intelligence" : 0})
 
-
+#Introduction à l'histoire
 def introduction():
     print("Bienvenue en 1990... 10 ans depuis la disparition de Lord Voldemort.",end="")
     input()
@@ -16,6 +17,7 @@ def introduction():
     print("Tu attends ta lettre d'acceptation pour t'aventurer sur le Chemin de Traverse...",end="")
     input()
 
+#invitation à Poudlard
 def recevoir_lettre():
     print("Tu vois une chouette traverser la fenêtre et qui t’apporte une lettre scellée du sceau de Poudlard... ",end="")
     input()
@@ -30,6 +32,7 @@ def recevoir_lettre():
         input()
 
 porte_casse = False
+#Première rencontre avec Hagrid
 def coucouHagrid(joueur):
     global porte_casse
     print("Toc,toc...Tu te lèves pour aller ouvrir, tu tombes nez à nez avec un géant de plus de 2m et demi.",end="")
@@ -69,6 +72,7 @@ def coucouHagrid(joueur):
         print("Hagrid : Allons sur le Chemin de Traverse!")
         input()
 
+#Achat des object utile pour le reste du jeu
 def fourniture(joueur):
     global animal
     print("Tu te retrouves ainsi dans un bar appelé le Chaudron Baveur, Hagrid t'emmène à l’arrière du bar et soudain… \nil sort un parapluie rose de son manteau et commence à tapoter 3 fois une brique… ",end="")
@@ -129,6 +133,7 @@ def fourniture(joueur):
         modifier_argent(joueur,-5)
     print()
 
+#Arriver à la gare et dans la voie 9 ¾
 def arriver_gare():
     print("La fin des vacances d’été approchent et tu fais tes valises pour aller à la gare King’s Cross.",end="")
     input()
@@ -147,6 +152,7 @@ def arriver_gare():
         choix = demander_choix("Tu te heurtes au mur incrédule et regarde tes parents qui rigolent et qui te disent de réessayer avec confiance.",["Tu attrapes ton chariot avec ta valise et tu te met à courir à toute vitesse droit sur le mur","Tu serres ton chariot entre tes mains, et fonce un peu hésitant"])
     print("Tu te retrouves alors sur le quai 9 ¾, avec une belle locomotive rouge à vapeur. \nTu montes à bord du Poudlard Express, tu trouves un compartiment vide pour t’y installer et y déposer tes valises dans le porte-bagages.\nLe train démarre lentement vers le Nord…")
 
+#fonction du chapitre 1 ensemble et transition entre chapitre 1 et 2
 def lancer_chapitre_1(joueur):
     introduction()
     input()
