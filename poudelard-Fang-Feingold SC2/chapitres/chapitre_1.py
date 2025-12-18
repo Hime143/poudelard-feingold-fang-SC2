@@ -30,7 +30,7 @@ def recevoir_lettre():
         input()
 
 porte_casse = False
-def coucouHagrid(joueur):
+def coucou_Hagrid(joueur):
     global porte_casse
     print("Toc,toc...Tu te lèves pour aller ouvrir, tu tombes nez à nez avec un géant de plus de 2m et demi.",end="")
     input()
