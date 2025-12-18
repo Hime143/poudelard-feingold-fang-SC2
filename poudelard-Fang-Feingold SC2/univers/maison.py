@@ -1,12 +1,6 @@
 from utils.input_utils import demander_choix
 
 
-maisons = {
-    "Gryffondor": 0,
-    "Serpentard": 0,
-    "Poufsouffle": 0,
-    "Serdaigle": 0
-    }
 
 def actualiser_points_maison(maisons, nom_maison, points):
     maisons[nom_maison] += points

@@ -124,7 +124,7 @@ def ceremonie_repartition(joueur):
     print("Tu rejoins les élèves de {} sous les acclamations !".format(maison))
 
 #présentation de la maison choisi
-def installation_salle_commune(joueur):
+def installation_salle_commune(joueur,maisons):
     maisons = load_fichier("./data/maisons.json")
 
     maison = joueur["Maison"]
@@ -136,7 +136,7 @@ def installation_salle_commune(joueur):
     print("Les couleurs de votre maison :", ", ".join(info["couleurs"]))
 
 #fonction du chapitre 2 ensemble, transition entre chapitre 2 et 3
-def lancer_chapitre_2(joueur):
+def lancer_chapitre_2(joueur,maisons):
     rencontrer_amis(joueur)
     print("Après quelques heures de train, tu vois enfin le majestueux château de l’école de sorcellerie Poudlard.")
     input()
