@@ -37,3 +37,37 @@ def apprendre_sort(joueur):
             if j["nom"] == joueur["Sortilèges"][i]:
                 print("-{} ({}) : {}".format(j["nom"],j["type"],j["description"]))
 
+def quiz_magie(joueur):
+    print("Bienvenue au quiz de magie de Poudlard !\nRéponds correctement aux 4 questions pour faire gagner des points à ta maison.")
+    questions = []
+    f = load_fichier("./data/quiz_magie.json")
+    while len(questions) < 4:
+        question = choice(f)
+        if question not in questions:
+            questions.append(question)
+    score = 0
+    for question in questions:
+        print(question["question"])
+        reponse = input()
+        if reponse == question["reponse"]:
+            print("Bonne réponse ! +25 points pour ta maison.")
+            score += 25
+        else:
+            print("Mauvaise réponse. La bonne réponse était : {}".format(question["reponse"]))
+    print("score obtenue : {} points".format(score))
+    joueur["score"] = score
+
+
+
+def lancer_chapitre_3(joueur,maisons):
+    apprendre_sort(joueur)
+    input()
+    quiz_magie(joueur)
+    actualiser_points_maison(maisons, joueur["Maison"], joueur["score"])
+    input()
+    print("la maison en tête pour l'instant est :",end="")
+    afficher_maison_gagnante(maisons)
+    input()
+    afficher_personnage(joueur)
+    input()
+    print("Fin du Chapitre 3 —")
