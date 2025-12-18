@@ -3,7 +3,7 @@ from utils.input_utils import *
 from chapitres.chapitre_1 import porte_casse
 from random import randint, choice
 #Petite intro pour le chapitre 4 de la finale de Quidditch
-def intro_4():
+def intro_4(joueur):
     print("La fin d'année approche et bien évidemment la fameuse la finale de Quidditch que tout le monde attend avec ardeur.\n Tu vois Hagrid s'approcher de toi avec un grand sourire.")
     if porte_casse:
         print("Hagrid : Hey, coucou {}, ça va ? Pas trop stressé j'espère?".format(joueur["Prenom"]))
