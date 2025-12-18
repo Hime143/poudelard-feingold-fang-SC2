@@ -82,7 +82,7 @@ def match_quidditch(joueur, maisons):
     maisons_adverses.remove(maison_joueur)
     maison_adverse = choice(maisons_adverses)
 
-    print("\nMatch de Quidditch : " + maison_joueur + " vs " + maison_adverse + " !")
+    print("Match de Quidditch : " + maison_joueur + " vs " + maison_adverse + " !")
     equipe_joueur = creer_equipe(maison_joueur, data_maison, True, joueur)
     equipe_adverse = creer_equipe(maison_adverse, data_maison)
 
@@ -92,7 +92,7 @@ def match_quidditch(joueur, maisons):
     print("Tu joues pour " + maison_joueur + " en tant qu’Attrapeur")
 
     for tour in range(1, 21):
-        print("\n━━━ Tour " + str(tour) + " ━━━")
+        print("Tour " + str(tour)")
         tentative_marque(equipe_adverse, equipe_joueur)
         tentative_marque(equipe_joueur, equipe_adverse, True)
         afficher_score(equipe_joueur, equipe_adverse)
@@ -105,7 +105,7 @@ def match_quidditch(joueur, maisons):
 
         input("Appuyez sur Entrée pour passer au tour suivant...")
 
-    print("\nScore final :")
+    print("Score final :")
     afficher_score(equipe_joueur, equipe_adverse)
 
     if equipe_joueur['score'] > equipe_adverse['score']:
