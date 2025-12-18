@@ -146,7 +146,7 @@ def lancer_chapitre_2(joueur,maisons):
     ceremonie_repartition(joueur)
     input()
     print("Après le banquet, tu suis ton préfet de maison pour aller dans la salle commune de {}...".format(joueur["Maison"]))
-    installation_salle_commune(joueur)
+    installation_salle_commune(joueur,maisons)
     input()
     afficher_personnage(joueur)
     input()
