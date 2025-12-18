@@ -161,4 +161,4 @@ def lancer_chapitre_1(joueur):
     fourniture(joueur)
     arriver_gare()
     print("Fin du Chapitre 1 ! Votre aventure commence à Poudlard...")
-    return joueur
+    afficher_personnage(joueur)
