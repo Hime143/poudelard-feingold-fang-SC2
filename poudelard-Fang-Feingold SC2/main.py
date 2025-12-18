@@ -1,10 +1,3 @@
-from chapitres.chapitre_1 import *
-from chapitres.chapitre_2 import *
-from chapitres.chapitre_3 import *
-from chapitres.chapitre_4 import *
+from menu import lancer_choix_menu
 
-joueur = initialiser()
-lancer_chapitre_1(joueur)
-lancer_chapitre_2(joueur)
-lancer_chapitre_3(joueur,maisons)
-lancer_chapitre4(joueur,maisons)
+lancer_choix_menu()
