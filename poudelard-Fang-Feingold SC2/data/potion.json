@@ -1,7 +1,7 @@
 {
   "Polynectar": {
     "description": "Permet de prendre l'apparence d'une autre personne pour une heure.",
-    "ingredients": ["Sangsues pilées", "Feuilles de polygonum", "cheveux"]
+    "ingredients": ["Sangsues pilées", "Feuilles de polygonum", "Cheveux"]
   },
   "PotionEnflure": {
     "description": "Fait enfler la personne ou l'objet visé.",
@@ -13,7 +13,7 @@
   },
   "PotionConcentration": {
     "description": "Permet de lancer des sorts plus efficacement et fréquemment.",
-    "ingredients": ["Chrysopes séchées", "Plumes de hibou", "Extrait de pensée claire"]
+    "ingredients": ["Chrysopes séchées", "Plumes de hibou", "Dictame"]
   },
   "PhiltreMortVivante": {
     "description": "Provoque un profond sommeil semblable à la mort.",
