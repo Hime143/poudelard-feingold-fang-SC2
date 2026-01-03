@@ -2,6 +2,7 @@ from utils.input_utils import *
 from chapitres.chapitre_1 import *
 from chapitres.chapitre_2 import *
 from chapitres.chapitre_3 import *
+from chapitres.chapitre_4 import *
 
 def afficher_menu_principal():
     print("1. Lancer le Chapitre 1 – L’arrivée dans le monde magique.\n2. Quitter le jeu.")
@@ -21,6 +22,7 @@ def lancer_choix_menu():
             lancer_chapitre_1(joueur)
             lancer_chapitre_2(joueur,maisons)
             lancer_chapitre_3(joueur, maisons)
+            lancer_chapitre_4(joueur, maisons)
         elif choix == 2:
             print("A bientôt à Poudelard")
             quit()

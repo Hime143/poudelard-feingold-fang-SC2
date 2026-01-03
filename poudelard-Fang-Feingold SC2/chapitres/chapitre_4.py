@@ -1,22 +1,22 @@
-import json
+from univers.maison import *
 from univers.personnage import *
 from utils.input_utils import *
-from univers.maison import *
-from chapitres.chapitre_1 import porte_casse
-from random import randint, choice
+from random import randint,choice
+from chapitres.chapitre_1 import is_porte_casse
+
 
 # Intro du chapitre 4
 def intro_4(joueur):
     print("La fin d'année approche et bien évidemment la fameuse finale de Quidditch que tout le monde attend avec ardeur.\nTu vois Hagrid s'approcher de toi avec un grand sourire.")
-    if porte_casse:
+    if is_porte_casse():
         print("Hagrid : Hey, coucou {}, ça va ? Pas trop stressé j'espère?".format(joueur["Prenom"]))
         print("Je pense que ça devrait aller...en revanche ma pauvre porte je sais pas trop si elle va bien...")
     else:
         print("Pas trop ça va. Ma première compétition, j'ai hâte de voler et gagner des points!")
 
 # Création des équipes
-def creer_equipe(maison, data_maison, est_joueur=False, joueur=None):
-    equipe_data = data_maison[maison]['joueurs']
+def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None):
+    equipe_data = equipe_data[maison]['joueurs']
     equipe = {
         'nom': maison,
         'score': 0,
@@ -27,7 +27,7 @@ def creer_equipe(maison, data_maison, est_joueur=False, joueur=None):
     }
 
     if est_joueur and joueur:
-        nouvelle_liste = [joueur['nom'] + " (Attrapeur)"]
+        nouvelle_liste = [joueur['Nom'] + " (Attrapeur)"]
         for p in equipe_data:
             if "(Attrapeur)" not in p and "(Attrapeuse)" not in p:
                 nouvelle_liste.append(p)
@@ -77,14 +77,14 @@ def afficher_equipe(maison, equipe):
 # Déroulement complet du match
 def match_quidditch(joueur, maisons):
     fichier = load_fichier("./data/equipes_quidditch.json")
-    maison_joueur = joueur['maison']
-    maisons_adverses = list(data_maison.keys())
+    maison_joueur = joueur['Maison']
+    maisons_adverses = list(maisons.keys())
     maisons_adverses.remove(maison_joueur)
     maison_adverse = choice(maisons_adverses)
 
     print("Match de Quidditch : " + maison_joueur + " vs " + maison_adverse + " !")
-    equipe_joueur = creer_equipe(maison_joueur, data_maison, True, joueur)
-    equipe_adverse = creer_equipe(maison_adverse, data_maison)
+    equipe_joueur = creer_equipe(maison_joueur, fichier, True, joueur)
+    equipe_adverse = creer_equipe(maison_adverse, fichier)
 
     afficher_equipe(maison_joueur, equipe_joueur)
     afficher_equipe(maison_adverse, equipe_adverse)
@@ -92,7 +92,7 @@ def match_quidditch(joueur, maisons):
     print("Tu joues pour " + maison_joueur + " en tant qu’Attrapeur")
 
     for tour in range(1, 21):
-        print("Tour " + str(tour)")
+        print("Tour " + str(tour))
         tentative_marque(equipe_adverse, equipe_joueur)
         tentative_marque(equipe_joueur, equipe_adverse, True)
         afficher_score(equipe_joueur, equipe_adverse)
@@ -117,16 +117,16 @@ def match_quidditch(joueur, maisons):
         return
 
     if equipe_joueur['attrape_vifdor']:
-        print(equipe_joueur['nom'] + " a attrapé le Vif d'Or ! +150 points")
+        print(equipe_joueur['nom'] + " a attrapé le Vif d'Or !")
     elif equipe_adverse['attrape_vifdor']:
-        print(equipe_adverse['nom'] + " a attrapé le Vif d'Or ! +150 points")
+        print(equipe_adverse['nom'] + " a attrapé le Vif d'Or !")
 
     print("La maison gagnante est " + gagnant['nom'] + " avec " + str(gagnant['score']) + " points !")
     actualiser_points_maison(maisons, gagnant['nom'], 500)
     print("+500 points pour " + gagnant['nom'] + " !")
 
 # Lancer le chapitre 4 complet
-def lancer_chapitre4(joueur, maisons):
+def lancer_chapitre_4(joueur, maisons):
     print("Chapitre 4 : Finale de Quidditch")
     intro_4(joueur)
     match_quidditch(joueur, maisons)

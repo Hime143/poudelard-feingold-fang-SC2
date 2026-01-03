@@ -1,7 +1,5 @@
 from utils.input_utils import demander_choix
 
-
-
 def actualiser_points_maison(maisons, nom_maison, points):
     maisons[nom_maison] += points
 
