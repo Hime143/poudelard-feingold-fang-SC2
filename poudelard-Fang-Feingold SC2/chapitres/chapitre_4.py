@@ -139,7 +139,6 @@ def match_quidditch(joueur, maisons):
     print("+500 points pour {} !".format(gagnant_match['nom']))
 
 # Lancer le chapitre 4 complet
-
 def lancer_chapitre_4(joueur, maisons):
     print("Chapitre 4 : Finale de Quidditch")
     intro_4(joueur)
