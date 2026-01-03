@@ -7,6 +7,8 @@
 
 - Utilisation : lancer le jeu toujours depuis main.py et suivre les instructions du jeu.
 
+- Création des chapitres de l'histoire (chap 1, 2 & 3) en se basant sur l'oeuvre original avec beaucoup d'inspiration ; https://docs.google.com/document/d/1pcvVnEzgilHCCn3YRhb4mhJQ2BC_udvCQp7JPFdOB78/edit?usp=sharing
+
 Journal de bord :
 
     fichier utils:
