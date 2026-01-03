@@ -1,7 +1,7 @@
 {
   "Polynectar": {
     "description": "Permet de prendre l'apparence d'une autre personne pour une heure.",
-    "ingredients": ["Sangsues pilées", "Feuilles de polygonum", "Échantillon personnel de la cible"]
+    "ingredients": ["Sangsues pilées", "Feuilles de polygonum", "cheveux"]
   },
   "PotionEnflure": {
     "description": "Fait enfler la personne ou l'objet visé.",
