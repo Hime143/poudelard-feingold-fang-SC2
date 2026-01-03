@@ -19,7 +19,7 @@ def preparer_potion(joueur):
     input()
     print("Tu observes les ingrédients étalés devant toi : chaque détail compte pour réussir la potion.")
     input()
-    print("💡 Description : {}".format(potion["description"]))
+    print(" Description : {}".format(potion["description"]))
     input()
 
     ingredients_attendus = potion["ingredients"]
@@ -33,11 +33,11 @@ def preparer_potion(joueur):
         ingredients_joueur.append(ingr)
 
         if ingr == ingredients_attendus[i]:
-            print("✅ {} ajouté correctement !".format(ingr))
+            print("{} ajouté correctement !".format(ingr))
             nb_correct += 1
             print("Le chaudron bouillonne harmonieusement…")
         else:
-            print("⚠️ {} est incorrect… Le chaudron grésille !".format(ingr))
+            print("{} est incorrect… Le chaudron grésille !".format(ingr))
         input()
 
     print()
