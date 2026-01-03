@@ -1,30 +1,30 @@
 {
   "Polynectar": {
     "description": "Permet de prendre l'apparence d'une autre personne pour une heure.",
-    "ingredients": ["Sangsues", "Sisymbre", "Touffes de Polygonum"]
+    "ingredients": ["Sangsues pilées", "Feuilles de polygonum", "Échantillon personnel de la cible"]
   },
   "PotionEnflure": {
     "description": "Fait enfler la personne ou l'objet visé.",
-    "ingredients": ["Yeux de poissons", "Orties séchées", "Foies de chauve-souris"]
+    "ingredients": ["Orties séchées", "Foie de chauve-souris", "Bave de crapaud"]
   },
   "Wiggenweld": {
     "description": "Soigne les blessures et régénère la santé.",
-    "ingredients": ["Aconit", "Corne de licorne", "Mandragore bouillie"]
+    "ingredients": ["Essence de dictame", "Racine de mandragore", "Poudre de pierre de lune"]
   },
   "PotionConcentration": {
     "description": "Permet de lancer des sorts plus efficacement et fréquemment.",
-    "ingredients": ["Chrysopes", "Sisymbre", "Langue de Fangieux"]
+    "ingredients": ["Chrysopes séchées", "Plumes de hibou", "Extrait de pensée claire"]
   },
   "PhiltreMortVivante": {
     "description": "Provoque un profond sommeil semblable à la mort.",
-    "ingredients": ["Fèves sopophoriques", "Infusion d'armoise", "Racines de valériane"]
+    "ingredients": ["Fèves sopophoriques écrasées", "Infusion de valériane", "Essence d’armoise"]
   },
   "FelixFelicis": {
     "description": "Procure temporairement une chance exceptionnelle.",
-    "ingredients": ["Œufs de Serpencendre", "Bulbe de scilla", "Œuf d'Occamy"]
+    "ingredients": ["Œuf de serpencendre", "Poudre de coquille d’Occamy", "Gouttes de chance distillée"]
   },
   "PotionRatatinage": {
     "description": "Fait rétrécir les objets et inverse le vieillissement.",
-    "ingredients": ["Chenilles", "Jus de figue", "Sangsues"]
+    "ingredients": ["Peau de vipère", "Baies de réduction", "Extrait de racine compressée"]
   }
 }
