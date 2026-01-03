@@ -160,6 +160,7 @@ def is_porte_casse():
 
 #fonction du chapitre 1 ensemble et transition entre chapitre 1 et 2
 def lancer_chapitre_1(joueur):
+    print("Chapitre 1 - L'arrivée dans le monde magique")
     introduction()
     input()
     recevoir_lettre()

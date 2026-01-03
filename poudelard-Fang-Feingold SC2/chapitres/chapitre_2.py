@@ -137,6 +137,7 @@ def installation_salle_commune(joueur,maisons):
 
 #fonction du chapitre 2 ensemble, transition entre chapitre 2 et 3
 def lancer_chapitre_2(joueur,maisons):
+    print("Chapitre 2 - Rencontre")
     rencontrer_amis(joueur)
     print("Après quelques heures de train, tu vois enfin le majestueux château de l’école de sorcellerie Poudlard.")
     input()

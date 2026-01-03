@@ -1,0 +1,30 @@
+{
+  "Polynectar": {
+    "description": "Permet de prendre l'apparence d'une autre personne pour une heure.",
+    "ingredients": ["Sangsues", "Sisymbre", "Touffes de Polygonum"]
+  },
+  "PotionEnflure": {
+    "description": "Fait enfler la personne ou l'objet visé.",
+    "ingredients": ["Yeux de poissons", "Orties séchées", "Foies de chauve-souris"]
+  },
+  "Wiggenweld": {
+    "description": "Soigne les blessures et régénère la santé.",
+    "ingredients": ["Aconit", "Corne de licorne", "Mandragore bouillie"]
+  },
+  "PotionConcentration": {
+    "description": "Permet de lancer des sorts plus efficacement et fréquemment.",
+    "ingredients": ["Chrysopes", "Sisymbre", "Langue de Fangieux"]
+  },
+  "PhiltreMortVivante": {
+    "description": "Provoque un profond sommeil semblable à la mort.",
+    "ingredients": ["Fèves sopophoriques", "Infusion d'armoise", "Racines de valériane"]
+  },
+  "FelixFelicis": {
+    "description": "Procure temporairement une chance exceptionnelle.",
+    "ingredients": ["Œufs de Serpencendre", "Bulbe de scilla", "Œuf d'Occamy"]
+  },
+  "PotionRatatinage": {
+    "description": "Fait rétrécir les objets et inverse le vieillissement.",
+    "ingredients": ["Chenilles", "Jus de figue", "Sangsues"]
+  }
+}

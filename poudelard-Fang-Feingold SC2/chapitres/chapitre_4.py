@@ -1,20 +1,23 @@
 from univers.maison import *
 from univers.personnage import *
 from utils.input_utils import *
-from random import randint,choice
+from random import randint, choice
 from chapitres.chapitre_1 import is_porte_casse
 
 
-# Intro du chapitre 4
 def intro_4(joueur):
-    print("La fin d'année approche et bien évidemment la fameuse finale de Quidditch que tout le monde attend avec ardeur.\nTu vois Hagrid s'approcher de toi avec un grand sourire.")
+    print("La fin d'année approche et bien évidemment la fameuse finale de Quidditch que tout le monde attend avec ardeur.")
+    print("Tu vois Hagrid s'approcher de toi avec un grand sourire.")
+    input()
     if is_porte_casse():
-        print("Hagrid : Hey, coucou {}, ça va ? Pas trop stressé j'espère?".format(joueur["Prenom"]))
-        print("Je pense que ça devrait aller...en revanche ma pauvre porte je sais pas trop si elle va bien...")
+        print("Hagrid : Hey, coucou {}, ça va ? Pas trop stressé j'espère ?".format(joueur["Prenom"]))
+        input()
+        print("Je pense que ça devrait aller... en revanche ma pauvre porte je sais pas trop si elle va bien...")
     else:
-        print("Pas trop ça va. Ma première compétition, j'ai hâte de voler et gagner des points!")
+        print("Pas trop, ça va. Ma première compétition, j'ai hâte de voler et gagner des points !")
+    input()
 
-# Création des équipes
+
 def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None):
     equipe_data = equipe_data[maison]['joueurs']
     equipe = {
@@ -35,7 +38,7 @@ def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None):
 
     return equipe
 
-# Tentative de but
+
 def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
     proba_but = randint(1, 10)
     if proba_but >= 6:
@@ -45,36 +48,39 @@ def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
             buteur = choice(equipe_attaque['joueurs'])
         equipe_attaque['score'] += 10
         equipe_attaque['a_marque'] += 1
-        print(buteur + " marque un but pour " + equipe_attaque['nom'] + " ! (+10 points)")
+        print("{} marque un but pour {} ! (+10 points)".format(buteur, equipe_attaque['nom']))
     else:
         equipe_defense['a_stoppe'] += 1
-        print(equipe_defense['nom'] + " bloque l'attaque !")
+        print("{} bloque l’attaque !".format(equipe_defense['nom']))
 
-# Apparition du Vif d'Or
+
+# Apparition et capture du Vif d'Or
+
 def apparition_vifdor():
     return randint(1, 6) == 6
 
-# Capture du Vif d'Or
 def attraper_vifdor(e1, e2):
     gagnant = choice([e1, e2])
     gagnant['score'] += 150
     gagnant['attrape_vifdor'] = True
-    print("Le Vif d'Or a été attrapé par " + gagnant['nom'] + " ! (+150 points)")
+    print("Le Vif d’Or a été attrapé par {} ! (+150 points)".format(gagnant['nom']))
     return gagnant
 
-# Affichage du score
+# Affichage du score et équipes
+
 def afficher_score(e1, e2):
     print("Score actuel :")
-    print("→ " + e1['nom'] + " : " + str(e1['score']) + " points")
-    print("→ " + e2['nom'] + " : " + str(e2['score']) + " points")
+    print("→ {} : {} points".format(e1['nom'], e1['score']))
+    print("→ {} : {} points".format(e2['nom'], e2['score']))
 
-# Affichage d'une équipe
 def afficher_equipe(maison, equipe):
-    print("Équipe de " + maison + " :")
+    print("Équipe de {} :".format(maison))
     for joueur in equipe['joueurs']:
         print("- " + joueur)
 
+
 # Déroulement complet du match
+
 def match_quidditch(joueur, maisons):
     fichier = load_fichier("./data/equipes_quidditch.json")
     maison_joueur = joueur['Maison']
@@ -82,50 +88,61 @@ def match_quidditch(joueur, maisons):
     maisons_adverses.remove(maison_joueur)
     maison_adverse = choice(maisons_adverses)
 
-    print("Match de Quidditch : " + maison_joueur + " vs " + maison_adverse + " !")
+    print("Match de Quidditch : {} vs {} !".format(maison_joueur, maison_adverse))
     equipe_joueur = creer_equipe(maison_joueur, fichier, True, joueur)
     equipe_adverse = creer_equipe(maison_adverse, fichier)
 
     afficher_equipe(maison_joueur, equipe_joueur)
     afficher_equipe(maison_adverse, equipe_adverse)
 
-    print("Tu joues pour " + maison_joueur + " en tant qu’Attrapeur")
+    print("Tu joues pour {} en tant qu’Attrapeur".format(maison_joueur))
+    input()
 
+    gagnant_vifdor = None  # Initialisation pour utilisation après la boucle
+
+    # Boucle de 20 tours maximum
     for tour in range(1, 21):
-        print("Tour " + str(tour))
+        print("\n━━━ Tour {} ━━━".format(tour))
+
+        # Tour équipe adverse
         tentative_marque(equipe_adverse, equipe_joueur)
+        # Tour équipe joueur
         tentative_marque(equipe_joueur, equipe_adverse, True)
+
         afficher_score(equipe_joueur, equipe_adverse)
 
+        # Vif d'Or
         if apparition_vifdor():
-            print("Le Vif d'Or apparaît !")
+            print("\nLe Vif d’Or apparaît !")
             gagnant_vifdor = attraper_vifdor(equipe_joueur, equipe_adverse)
             print("Fin du match !")
             break
 
-        input("Appuyez sur Entrée pour passer au tour suivant...")
+        input()
 
-    print("Score final :")
+    # Score final
+    print("\nScore final :")
     afficher_score(equipe_joueur, equipe_adverse)
 
+    # Affichage du gagnant du Vif d'Or si attrapé
+    if gagnant_vifdor:
+        print("Le Vif d’Or a été attrapé par {} !".format(gagnant_vifdor['nom']))
+
+    # Détermination du gagnant du match
     if equipe_joueur['score'] > equipe_adverse['score']:
-        gagnant = equipe_joueur
+        gagnant_match = equipe_joueur
     elif equipe_adverse['score'] > equipe_joueur['score']:
-        gagnant = equipe_adverse
+        gagnant_match = equipe_adverse
     else:
         print("Match nul ! Aucun point attribué.")
         return
 
-    if equipe_joueur['attrape_vifdor']:
-        print(equipe_joueur['nom'] + " a attrapé le Vif d'Or !")
-    elif equipe_adverse['attrape_vifdor']:
-        print(equipe_adverse['nom'] + " a attrapé le Vif d'Or !")
-
-    print("La maison gagnante est " + gagnant['nom'] + " avec " + str(gagnant['score']) + " points !")
-    actualiser_points_maison(maisons, gagnant['nom'], 500)
-    print("+500 points pour " + gagnant['nom'] + " !")
+    print("La maison gagnante est {} avec {} points !".format(gagnant_match['nom'], gagnant_match['score']))
+    actualiser_points_maison(maisons, gagnant_match['nom'], 500)
+    print("+500 points pour {} !".format(gagnant_match['nom']))
 
 # Lancer le chapitre 4 complet
+
 def lancer_chapitre_4(joueur, maisons):
     print("Chapitre 4 : Finale de Quidditch")
     intro_4(joueur)
@@ -133,5 +150,6 @@ def lancer_chapitre_4(joueur, maisons):
     print("Fin du Chapitre 4 — Quelle performance incroyable sur le terrain !")
     print("La maison qui remporte la Coupe des Quatre Maisons est :", end=" ")
     afficher_maison_gagnante(maisons)
+    input()
     afficher_personnage(joueur)
     print("Fin du Chapitre 4 !")

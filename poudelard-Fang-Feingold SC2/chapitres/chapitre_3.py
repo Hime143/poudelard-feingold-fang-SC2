@@ -61,6 +61,7 @@ def quiz_magie(joueur):
 
 #fonction du chapitre 3 ensemble, ajout des points dans la maison du joueur et transition entre chapitre 3 et 4
 def lancer_chapitre_3(joueur,maisons):
+    print("Chapitre 3 - Leçon de sorts")
     apprendre_sort(joueur)
     input()
     quiz_magie(joueur)
