@@ -4,7 +4,6 @@ from random import choice
 
 
 # Choisir une potion aléatoire
-print(Chapitre5)
 def choisir_potion():
     potions = load_fichier("./data/potion.json")
     nom_potion = choice(list(potions.keys()))
