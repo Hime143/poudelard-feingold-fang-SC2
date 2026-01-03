@@ -26,4 +26,4 @@ Journal de bord :
     correction de bug : Cléo
 - Gestion des erreurs: le jeu à été testé à plusieur reprises puis corriger jusqu'à qu'on ne soit plus cabable de trouver une erreur , aucun bug connu non corrigé.
 
-- Stratégie des tests: lancer le jeux et vérifier toutes les différente possibilitée lorsqu'une erreur se présente, utiliser le message d'ereur pour trouver sa cause al corriger puis reprendre les vérificatin du début
+- Stratégie des tests: lancer le jeux et vérifier toutes les différente possibilitée lorsqu'une erreur se présente, utiliser le message d'ereur pour trouver sa cause al corriger puis reprendre les vérification du début
