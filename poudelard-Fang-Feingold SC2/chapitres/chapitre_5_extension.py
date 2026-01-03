@@ -22,7 +22,6 @@ def preparer_potion(joueur):
     print("Tu observes les ingrédients étalés devant toi : chaque détails compte pour réussir la potion.")
     input()
     print(" Description : {}".format(potion["description"]))
-    input()
 
     ingredients_attendus = potion["ingredients"]
     ingredients_joueur = []
