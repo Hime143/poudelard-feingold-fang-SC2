@@ -85,52 +85,60 @@ def fourniture(joueur):
     input()
     print("Tu fais la visite de plusieurs boutiques et en regardant ta liste de fournitures scolaires tu remarques qu’il te faut obligatoirement:\nune baguette magique, une robe de sorcier et un manuel de potions",end="")
     input()
+    catalogue =  [["baguette magique", 35],
+                 ["robe de sorcier", 20],
+                 ["chaudron en etain", 15],
+                 ["manuel de potions", 25],
+                 ["plume magique ", 5],
+                 ["livre enchanté", 30],
+                 ["balance de cuivre", 10],
+                 ["cape d'invisibilité", 100]
+                 ]
     while "baguette magique" not in joueur["Inventaire"] or "robe de sorcier" not in joueur["Inventaire"] or "manuel de potions" not in joueur["Inventaire"]:
+        print("il vous reste {} galions".format(joueur["Argent"]))
+        print("vous devez obligatoirement acheter:", end = "")
+        if "baguette magique" not in joueur["Inventaire"]:
+            print("baguette magique",end=", ")
+        if "robe de sorcier" not in joueur["Inventaire"]:
+            print("robe de sorcier",end=", ")
+        if "manuel de potions" not in joueur["Inventaire"]:
+            print("manuel de potions")
         print()
-        choix = demander_choix("Voici le catalogue des objets disponibles :",["Baguette magique - 35 galions","Robe de sorcier - 20 galions","Chaudron en étain - 15 galions","Manuel de potions - 25 galions","Plume magique - 5 galions","Livre enchanté - 30 galions","Balance de cuivre - 10 galions","Cape d'invisibilité - 100 galions"])
-        if choix == 3 or choix == 5 or choix == 6 or choix == 7 or choix == 8:
-            print("tu n'a pas besoin de ça",end="")
-        elif choix == 1:
-            if "baguette magique" in joueur["Inventaire"]:
-                print("tu as déja acheté ça",end="")
-            else:
-                ajouter_objet(joueur,"Inventaire","baguette magique")
-                modifier_argent(joueur,-35)
-                print("Bravo tu viens d’acquérir une baguette magique",end="")
-        elif choix == 2:
-            if "robe de sorcier" in joueur["Inventaire"]:
-                print("tu as déja acheté ça",end="")
-            else:
-                ajouter_objet(joueur,"Inventaire","robe de sorcier")
-                modifier_argent(joueur,-20)
-                print("Bravo tu viens d’acquérir une robe de sorcier", end="")
-        elif choix == 4:
-            if "manuel de potions" in joueur["Inventaire"]:
-                print("tu as déja acheté ça",end="")
-            else:
-                ajouter_objet(joueur,"Inventaire","manuel de potions")
-                modifier_argent(joueur,-25)
-                print("Bravo tu viens d’acquérir un manuel de potions", end="")
+        choix = demander_choix("Voici le catalogue des objets disponibles :",
+                               ["Baguette magique - 35 galions", "Robe de sorcier - 20 galions",
+                                "Chaudron en étain - 15 galions", "Manuel de potions - 25 galions",
+                                "Plume magique - 5 galions", "Livre enchanté - 30 galions",
+                                "Balance de cuivre - 10 galions", "Cape d'invisibilité - 100 galions"])
+        if catalogue[choix-1][1] > joueur["Argent"]:
+            print("tu ne peux pas acheter ça")
+        else:
+            print("l'objet {} a été ajouter à ton inventaire tu as payé {} gallions".format(catalogue[choix-1][0],catalogue[choix-1][1]))
+            modifier_argent(joueur,-catalogue[choix-1][1])
+            ajouter_objet(joueur,"Inventaire",catalogue[choix-1][0])
+        if ("baguette magique" not in joueur["Inventaire"] and joueur["Argent"]< 35 ) or ("robe de sorcier" not in joueur["Inventaire"] and joueur["Argent"]< 20) or ("manuel de potions" not in joueur["Inventaire"] and joueur["Argent"]< 25):
+            print("Tu n'a plus de quoi payée les fournitures obligatoire.. c'est dommage tu devrais faire attention avec l'argent.\ngame over")
+            quit()
+    print("Tu peux dès à présent choisir ton animal de compagnie pour Poudlard")
+    if joueur["Argent"] < 5:
+        print("ah?! on dirait que tu n'a plus de quoi te payer un animal.. c'est dommage tu devrais faire attention avec l'argent.\ngame over")
+        quit()
+    print("il vous reste {} galions".format(joueur["Argent"]))
+    catalogue = [["une chouette", 20],
+                 ["un chat", 15],
+                 ["un rat", 10],
+                 ["un crapaud", 5]
+                 ]
     print()
-    print("Tu peux dès à présent choisir ton animal de compagnie pour Poudlard",end="")
+    choix = demander_choix("Tu remarques plusieurs animaux avec leur prix.",["une chouette - 20 galions", "un chat - 15 galions", "un rat - 10 galions ","un crapaud - 5 galions"])
+    while catalogue[choix-1][1] > joueur["Argent"]:
+        print("il faut que tu achète un familier un peu moins chère... Tu n'a que {} gallions".format(joueur["Argent"]))
+        choix = demander_choix("Tu remarques plusieurs animaux avec leur prix.",
+                               ["une chouette - 20 galions", "un chat - 15 galions", "un rat - 10 galions ",
+                                "un crapaud - 5 galions"])
 
-    choix = demander_choix("Tu remarques plusieurs animaux avec leur prix.",["une chouette - 20 galions","un chat - 15 galions","un rat - 10 galions ","un crapaud - 5 galions"])
-    if choix == 1:
-        print("Félicitations tu viens d’obtenir une chouette",end="")
-        animal = "chouette"
-        modifier_argent(joueur,-20)
-    elif choix == 2:
-        print("Félicitations tu viens d’obtenir un chat",end="")
-        animal = "chat"
-        modifier_argent(joueur,-15)
-    elif choix == 3:
-        print("Félicitations tu viens d’obtenir un rat",end="")
-        animal = "rat"
-        modifier_argent(joueur,-10)
-    else:
-        print("Félicitations tu viens d’obtenir un crapaud",end="")
-        animal = "crapaud"
-        modifier_argent(joueur,-5)
+    print("felicitation tu viens d'obtenir {}!".format(catalogue[choix-1][0]))
+    animal = catalogue[choix-1][0]
+    modifier_argent(joueur,-catalogue[choix-1][1])
     print()
 
 #Arriver à la gare et dans la voie 9 ¾
