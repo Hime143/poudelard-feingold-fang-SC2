@@ -25,7 +25,7 @@ def recevoir_lettre():
     input()
     choix =demander_choix("Souhaitez-vous accepter cette invitation et partir pour Poudlard ?",["Oui","Non"])
     if choix == 2:
-        print("Tu as choisi de refuser…ALORS QUE TU ES ISSUS D’UNE PUISSANTE FAMILLE DE SORCIER??? Tu as été renier par ta famille…Fin du jeu")
+        print("Tu as choisi de refuser…ALORS QUE TU ES ISSUS D’UNE PUISSANTE FAMILLE DE SORCIER??? Tu as été renié par ta famille…Fin du jeu")
         quit()
     else:
         print("Tu as choisi d’accepter d’aller à Poudlard, bienvenue jeune élève dans le monde des sorciers!")
