@@ -104,14 +104,11 @@ def match_quidditch(joueur, maisons):
     for tour in range(1, 21):
         print("\n━━━ Tour {} ━━━".format(tour))
 
-        # Tour équipe adverse
         tentative_marque(equipe_adverse, equipe_joueur)
-        # Tour équipe joueur
         tentative_marque(equipe_joueur, equipe_adverse, True)
 
         afficher_score(equipe_joueur, equipe_adverse)
 
-        # Vif d'Or
         if apparition_vifdor():
             print("\nLe Vif d’Or apparaît !")
             gagnant_vifdor = attraper_vifdor(equipe_joueur, equipe_adverse)
