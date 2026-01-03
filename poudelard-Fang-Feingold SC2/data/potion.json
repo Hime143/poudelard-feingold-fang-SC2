@@ -21,10 +21,10 @@
   },
   "FelixFelicis": {
     "description": "Procure temporairement une chance exceptionnelle.",
-    "ingredients": ["Œuf de serpencendre", "Poudre de coquille d’Occamy", "Gouttes de chance distillée"]
+    "ingredients": ["Œuf de serpencendre", "Poudre de coquille d’Occamy", "Sang de licorne"]
   },
   "PotionRatatinage": {
     "description": "Fait rétrécir les objets et inverse le vieillissement.",
-    "ingredients": ["Peau de vipère", "Baies de réduction", "Extrait de racine compressée"]
+    "ingredients": ["Peau de vipère", "Baies de réduction", "Extrait de marguerite"]
   }
 }
