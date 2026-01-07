@@ -9,12 +9,12 @@ def demander_nombre(message, min_val=None, max_val=None):
     while True:
         saisie = input(message).strip()
 
-        # Vérifier si entrée vide
+
         if saisie == "":
             print("Veuillez entrer un nombre entre", min_val, "et", max_val, ".")
             continue
 
-        # Gérer le signe négatif
+
         negatif = False
         if saisie[0] == "-":
             saisie = saisie[1:]
@@ -25,7 +25,7 @@ def demander_nombre(message, min_val=None, max_val=None):
                 negatif = True
 
 
-        # Vérifier que tous les caractères sont des chiffres
+
         est_valide = True
         for c in saisie:
             if c < '0' or c > '9':
@@ -36,14 +36,14 @@ def demander_nombre(message, min_val=None, max_val=None):
             print("Veuillez entrer un nombre valide (uniquement chiffres).")
             continue
 
-        #convertion en int
+
         nombre = 0
         for c in saisie:
             nombre = nombre * 10 + (ord(c) - ord('0'))
         if negatif:
             nombre = -nombre
 
-        # Vérifier bornes si présentes
+
         if min_val is not None and nombre < min_val:
             print("Veuillez entrer un nombre entre",min_val,"et",max_val,".")
             continue

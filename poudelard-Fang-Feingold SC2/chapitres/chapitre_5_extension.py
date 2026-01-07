@@ -3,7 +3,7 @@ from univers.maison import *
 from random import choice
 
 
-# Choisir une potion aléatoire
+
 def choisir_potion():
     potions = load_fichier("./data/potion.json")
     nom_potion = choice(list(potions.keys()))
@@ -43,7 +43,7 @@ def preparer_potion(joueur):
 
     print()
 
-    # Résultat du jeu
+
     if nb_correct == len(ingredients_attendus):
         print(" Le chaudron s'illumine et une lueur magique s'élève !")
         input()

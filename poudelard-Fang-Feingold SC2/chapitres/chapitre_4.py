@@ -54,7 +54,7 @@ def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
         print("{} bloque l’attaque !".format(equipe_defense['nom']))
 
 
-# Apparition et capture du Vif d'Or
+
 
 def apparition_vifdor():
     return randint(1, 6) == 6
@@ -66,7 +66,7 @@ def attraper_vifdor(e1, e2):
     print("Le Vif d’Or a été attrapé par {} ! (+150 points)".format(gagnant['nom']))
     return gagnant
 
-# Affichage du score et équipes
+
 
 def afficher_score(e1, e2):
     print("Score actuel :")
@@ -79,7 +79,7 @@ def afficher_equipe(maison, equipe):
         print("- " + joueur)
 
 
-# Déroulement complet du match
+
 
 def match_quidditch(joueur, maisons):
     fichier = load_fichier("./data/equipes_quidditch.json")
@@ -98,9 +98,9 @@ def match_quidditch(joueur, maisons):
     print("Tu joues pour {} en tant qu’Attrapeur".format(maison_joueur))
     input()
 
-    gagnant_vifdor = None  # Initialisation pour utilisation après la boucle
+    gagnant_vifdor = None
 
-    # Boucle de 20 tours maximum
+
     for tour in range(1, 21):
         print("\n━━━ Tour {} ━━━".format(tour))
 
@@ -117,15 +117,15 @@ def match_quidditch(joueur, maisons):
 
         input()
 
-    # Score final
+
     print("\nScore final :")
     afficher_score(equipe_joueur, equipe_adverse)
 
-    # Affichage du gagnant du Vif d'Or si attrapé
+
     if gagnant_vifdor:
         print("Le Vif d’Or a été attrapé par {} !".format(gagnant_vifdor['nom']))
 
-    # Détermination du gagnant du match
+
     if equipe_joueur['score'] > equipe_adverse['score']:
         gagnant_match = equipe_joueur
     elif equipe_adverse['score'] > equipe_joueur['score']:
@@ -138,7 +138,7 @@ def match_quidditch(joueur, maisons):
     actualiser_points_maison(maisons, gagnant_match['nom'], 500)
     print("+500 points pour {} !".format(gagnant_match['nom']))
 
-# Lancer le chapitre 4 complet
+
 def lancer_chapitre_4(joueur, maisons):
     print("Chapitre 4 : Finale de Quidditch")
     intro_4(joueur)

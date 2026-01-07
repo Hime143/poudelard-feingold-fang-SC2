@@ -2,7 +2,7 @@ from univers.maison import *
 from univers.personnage import *
 from utils.input_utils import *
 
-#Rencontre avec Ron Hermione et Drago dans le train
+
 def rencontrer_amis(joueur):
     print("Tu entends des coups à la porte, en ouvrant tu te retrouves nez à nez avec un garçon roux.", end="")
     input()
@@ -86,11 +86,11 @@ def rencontrer_amis(joueur):
         print("Des expériences? Tu dois en pratiquer souvent au domaine Bluebell")
         joueur["Attributs"]["courage"] += 1
 
-#Arriver à Poudlard
+
 def mot_de_bienvenue():
     print("Dumbledore: \n Bienvenue à Poudlard pour cette nouvelle année ! Avant de commencer le banquet, j'aimerais dire quelques mots.\n Voici nos nouveaux élèves, qui vont être répartis par le Choixpeau. Comme vous le savez chaque année la forêt interdite est interdite aux élèves. \n Cette année, les toilettes situées dans les cachots seront condamnées d’accès. Bien, commençons la répartition!")
 
-#fonction permettant de placer ke joueur dans uen maison après un quizz
+
 def ceremonie_repartition(joueur):
     questions = [
         (
@@ -123,7 +123,7 @@ def ceremonie_repartition(joueur):
     print("Le Choixpeau s’exclame : {} !!!".format(maison))
     print("Tu rejoins les élèves de {} sous les acclamations !".format(maison))
 
-#présentation de la maison choisi
+
 def installation_salle_commune(joueur,maisons):
     maisons = load_fichier("./data/maisons.json")
 
@@ -135,7 +135,7 @@ def installation_salle_commune(joueur,maisons):
     print(info["message_installation"])
     print("Les couleurs de votre maison :", ", ".join(info["couleurs"]))
 
-#fonction du chapitre 2 ensemble, transition entre chapitre 2 et 3
+
 def lancer_chapitre_2(joueur,maisons):
     print("Chapitre 2 - Rencontre")
     rencontrer_amis(joueur)
